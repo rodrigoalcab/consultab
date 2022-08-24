@@ -19,6 +19,7 @@ Route::get('/', function () {
 */
 
 
-Route::get('/', [\App\Http\Controllers\CardController::class, 'index'])->name('cards.index');
-Route::get('/cadastrar', [\App\Http\Controllers\CardController::class, 'create'])->name('cards.create');
-Route::post('/salvar', [\App\Http\Controllers\Admin\CardController::class, 'store'])->name('cards.store');
+Route::get('/fichas', [\App\Http\Controllers\FichaController::class, 'getAllFichas']);
+Route::get('/fichas/{id}', [\App\Http\Controllers\FichaController::class, 'getFicha']);
+Route::post('/fichas', [\App\Http\Controllers\FichaController::class, 'createFicha']);
+Route::delete('/fichas/{id}', [\App\Http\Controllers\FichaController::class, 'deleteFicha']);
