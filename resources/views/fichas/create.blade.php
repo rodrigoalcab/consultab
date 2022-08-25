@@ -1,4 +1,4 @@
-<form action="{{route('cards.store')}}" method="post">
+<form action="{{route('fichas.store')}}" method="post">
 
     @csrf
 

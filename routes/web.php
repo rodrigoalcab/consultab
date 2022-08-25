@@ -18,8 +18,4 @@ Route::get('/', function () {
 });
 */
 
-
-Route::get('/fichas', [\App\Http\Controllers\FichaController::class, 'getAllFichas']);
-Route::get('/fichas/{id}', [\App\Http\Controllers\FichaController::class, 'getFicha']);
-Route::post('/fichas', [\App\Http\Controllers\FichaController::class, 'createFicha']);
-Route::delete('/fichas/{id}', [\App\Http\Controllers\FichaController::class, 'deleteFicha']);
+Route::resource('/fichas', \App\Http\Controllers\FichaController::class);
