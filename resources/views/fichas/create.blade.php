@@ -1,9 +1,13 @@
+@extends('layouts.app')
+
+@section('content')
+
 <form action="{{route('fichas.store')}}" method="post">
 
     @csrf
 
     <div class="form-group">
-        <label>Titulo</label>
+        <label>Competência</label>
         <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
     </div>
 
@@ -17,5 +21,10 @@
         <textarea name="descricao" id="" cols="30" rows="10" class="form-control" value="{{old('descricao')}}"></textarea>
     </div>
         
-    <button class="btn btn-lg btn-success">Criar Card</button>
+    <button class="btn btn-lg btn-success">Salvar</button>
  </form>
+
+@endsection
+
+
+
