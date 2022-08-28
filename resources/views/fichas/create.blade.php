@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label>Competência</label>
-        <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
+        <input type="text" name="competencia" class="form-control" value="{{old('titulo')}}">
     </div>
 
     <div class="form-group">

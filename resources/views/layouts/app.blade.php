@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Gerenciador de Posts</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+       
     </head>
  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('fichas.index') }}">Posts</a>
+                    <a class="nav-link" href="{{ route('fichas.index') }}">Início</a>
                 </li>
             </ul>
         </div>

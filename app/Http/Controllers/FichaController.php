@@ -37,7 +37,16 @@ class FichaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->all();
+        $ficha = new Ficha();
+        $ficha->competencia = $dados['competencia'];
+        $ficha->codigo = $dados['codigo'];
+        $ficha->descricao = $dados['descricao'];
+
+        $ficha->save();
+
+        return redirect()->route('fichas.index');       
+
     }
 
     /**
@@ -59,7 +68,8 @@ class FichaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ficha = Ficha::find($id);
+        return view('fichas.edit', compact('ficha'));
     }
 
     /**
@@ -71,7 +81,12 @@ class FichaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+        $ficha = Ficha::find($id);
+
+        $ficha->update();
+
+        return redirect()->route('fichas.index');  
     }
 
     /**
@@ -82,6 +97,11 @@ class FichaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ficha = Ficha::find($id);
+        //dd($ficha);
+        //var_dump($ficha);
+        $ficha->delete();
+
+        return redirect()->route('fichas.index');   
     }
 }

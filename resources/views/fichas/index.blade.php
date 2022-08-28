@@ -12,16 +12,28 @@
       </tr>
     </thead>
     <tbody>   
-      <a href="{{ route('fichas.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+      <a href="{{ route('fichas.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Adicionar</a>
         @foreach($fichas as $ficha)     
             <tr>                
                 <td>{{ $ficha->competencia }}</td>
                 <td>{{ $ficha->codigo }}</td>
                 <td>{{ $ficha->descricao }}</td>
-                <td>{{ $ficha->descricao }}</td>
                 <td>
-                  <button type="button" class="btn btn-warning">Editar</button>
-                  <button type="button" class="btn btn-danger">Remover</button>
+
+                  <form action="{{route('fichas.edit', [$ficha->id])}}" method="post" style="display: inline;">
+                    @csrf
+                    @method('GET')
+                    <button type="submit" class="btn btn-warning">Editar</button>              
+                  </form>
+                  
+                  
+                  
+                    <form action="{{route('fichas.destroy', [$ficha->id])}}" method="post" style="display: inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger" onclick="return confirm('Deseja remover a ficha?')">Remover</button>
+                    </form>
+              
                 </td>
             </tr>
         @endforeach
