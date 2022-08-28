@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Ficha;
 
@@ -14,10 +15,8 @@ class FichaController extends Controller
      */
     public function index()
     {
-         // lógica para listar todas as fichas
-         $fichas = Ficha::get()->toJson(JSON_PRETTY_PRINT);
-         return response($fichas, 200);
-         //return csrf_token(); 
+        $fichas = Ficha::all();
+        return view('fichas.index', compact('fichas'));
     }
 
     /**
@@ -27,7 +26,7 @@ class FichaController extends Controller
      */
     public function create()
     {
-      return view('fichas.create');
+        return view('fichas.create');
     }
 
     /**
@@ -38,16 +37,7 @@ class FichaController extends Controller
      */
     public function store(Request $request)
     {
-         // lógica para criar uma nova ficha
-         $ficha = new Ficha;
-         $ficha->competencia = $request->competencia;
-         $ficha->codigo = $request->codigo;
-         $ficha->descricao = $request->descricao;
-         $ficha->save();
- 
-         return response()->json([
-             "message" => "Ficha criada com sucesso!"
-         ], 201);
+        //
     }
 
     /**
@@ -58,15 +48,7 @@ class FichaController extends Controller
      */
     public function show($id)
     {
-        // lógica para listar apenas uma ficha
-        if (Ficha::where('id', $id)->exists()) {
-            $ficha = Ficha::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
-            return response($ficha, 200);
-          } else {
-            return response()->json([
-              "message" => "A ficha não foi encontrada"
-            ], 404);
-          }
+        //
     }
 
     /**
@@ -89,22 +71,7 @@ class FichaController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if (Ficha::where('id', $id)->exists()) {
-        $ficha = Ficha::find($id);
-        $ficha->competencia = is_null($request->competencia) ? $ficha->competencia : $request->competencia;
-        $ficha->codigo = is_null($request->codigo) ? $ficha->codigo : $request->codigo;
-        $ficha->descricao = is_null($request->descricao) ? $ficha->descricao : $request->descricao;
-        $ficha->save();
-
-        return response()->json([
-            "message" => "Ficha atualizada com sucesso!"
-        ], 200);
-        } else {
-        return response()->json([
-            "message" => "A ficha não foi encontrada"
-        ], 404);
-        
-    }
+        //
     }
 
     /**
@@ -115,18 +82,6 @@ class FichaController extends Controller
      */
     public function destroy($id)
     {
-        // lógica para remover uma ficha
-        if(Ficha::where('id', $id)->exists()) {
-            $ficha = Ficha::find($id);
-            $ficha->delete();
-    
-            return response()->json([
-              "message" => "Ficha removida com sucesso!"
-            ], 202);
-          } else {
-            return response()->json([
-              "message" => "A ficha não foi encontrada"
-            ], 404);
-          }
+        //
     }
 }
