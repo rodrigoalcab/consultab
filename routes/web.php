@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 */
 
-Route::resource('/fichas', \App\Http\Controllers\FichaController::class);
+Route::resource('fichas', \App\Http\Controllers\FichaController::class)
+->parameters([
+    'fichas' => 'id'
+]);

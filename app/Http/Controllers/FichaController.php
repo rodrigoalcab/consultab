@@ -84,7 +84,7 @@ class FichaController extends Controller
         $dados = $request->all();
         $ficha = Ficha::find($id);
 
-        $ficha->update();
+        $ficha->update($dados);
 
         return redirect()->route('fichas.index');  
     }

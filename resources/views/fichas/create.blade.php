@@ -7,13 +7,23 @@
     @csrf
 
     <div class="form-group">
-        <label>Competência</label>
-        <input type="text" name="competencia" class="form-control" value="{{old('titulo')}}">
+        <label>Campo de Experiências</label>
+        <input type="text" name="campo" class="form-control" value="{{old('campo')}}">
+    </div>
+
+    <div class="form-group">
+        <label>Faixas Etárias</label>
+        <input type="text" name="competencia" class="form-control" value="{{old('faixas')}}">
     </div>
 
     <div class="form-group">
         <label>Código</label>
-            <input type="text" name="codigo" class="form-control" value="{{old('codigo')}}">
+        <input type="text" name="objetivo" class="form-control" value="{{old('codigo')}}">
+    </div>
+
+    <div class="form-group">
+        <label>Objetivos de aprendizagem e desenvolvimento</label>
+            <input type="text" name="objetivo" class="form-control" value="{{old('codigo')}}">
     </div>
         
     <div class="form-group">

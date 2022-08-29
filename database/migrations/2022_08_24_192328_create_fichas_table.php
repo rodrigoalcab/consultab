@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('fichas', function (Blueprint $table) {
             $table->id();
-            $table->string('competencia');
+            $table->string('campo');
+            $table->string('faixa');
             $table->string('codigo');
-            $table->string('descricao');
+            $table->string('objetivo');
+            $table->string('abordagem');
+            $table->string('sugestoes');
             $table->timestamps();
         });
     }
