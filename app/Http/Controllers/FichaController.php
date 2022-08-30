@@ -39,13 +39,18 @@ class FichaController extends Controller
     {
         $dados = $request->all();
         $ficha = new Ficha();
-        $ficha->competencia = $dados['competencia'];
+        $ficha->campo = $dados['campo'];
+        $ficha->faixas = $dados['faixas'];
         $ficha->codigo = $dados['codigo'];
-        $ficha->descricao = $dados['descricao'];
+        $ficha->objetivos = $dados['objetivos'];
+        $ficha->abordagem = $dados['abordagem'];
+        $ficha->sugestoes = $dados['sugestoes'];
 
         $ficha->save();
 
-        return redirect()->route('fichas.index');       
+        return redirect()        
+        ->route('fichas.index')
+        ->with('success', 'Ficha criada com sucesso!');       
 
     }
 
@@ -86,7 +91,9 @@ class FichaController extends Controller
 
         $ficha->update($dados);
 
-        return redirect()->route('fichas.index');  
+        return redirect()
+        ->route('fichas.index')
+        ->with('success', 'Ficha atualizada com sucesso!');  
     }
 
     /**
@@ -102,6 +109,8 @@ class FichaController extends Controller
         //var_dump($ficha);
         $ficha->delete();
 
-        return redirect()->route('fichas.index');   
+        return redirect()
+        ->route('fichas.index')
+        ->with('success', 'Ficha removida com sucesso!');  ;   
     }
 }

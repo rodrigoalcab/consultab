@@ -9,5 +9,5 @@ class Ficha extends Model
 {
     use HasFactory;
     protected $table = 'fichas';
-    protected $fillable = ['competencia', 'codigo', 'descricao'];
+    protected $fillable = ['campo', 'faixas', 'objetivos', 'abordagem', 'sugestoes'];
 }

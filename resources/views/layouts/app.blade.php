@@ -7,6 +7,18 @@
         <title>Gerenciador de Posts</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
        
+        <style>
+            .msg {
+                background-color: #D4EDDA;
+                color: #155724;
+                border: 1px solid #C3E6CB;
+                width: 100%;
+                margin-bottom: 0;
+                text-align: center;
+                padding: 10px;
+            }
+        
+        </style>
     </head>
  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,6 +34,19 @@
             </ul>
         </div>
     </nav>
+
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block text-center">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+    @if ($message = Session::get('danger'))
+        <div class="alert alert-danger alert-block text-center">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <div class="container">
         @yield('content')
     </div>

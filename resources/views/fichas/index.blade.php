@@ -11,6 +11,7 @@
         <th scope="col">Objetivos de aprendizagem e desenvolvimento</th>
         <th scope="col">Abordagem das experiências de aprendizagem</th>
         <th scope="col">Sugestões para o currículo</th>
+        <th scope="col">Ações</th>
       </tr>
     </thead>
     <tbody>   
@@ -18,9 +19,9 @@
         @foreach($fichas as $ficha)     
             <tr>                
                 <td>{{ $ficha->campo }}</td>
-                <td>{{ $ficha->faixa }}</td>
+                <td>{{ $ficha->faixas }}</td>
                 <td>{{ $ficha->codigo }}</td>
-                <td>{{ $ficha->objetivo }}</td>
+                <td>{{ $ficha->objetivos }}</td>
                 <td>{{ $ficha->abordagem }}</td>
                 <td>{{ $ficha->sugestoes }}</td>
                 <td>
@@ -29,9 +30,7 @@
                     @csrf
                     @method('GET')
                     <button type="submit" class="btn btn-warning">Editar</button>              
-                  </form>
-                  
-                  
+                  </form>            
                   
                     <form action="{{route('fichas.destroy', [$ficha->id])}}" method="post" style="display: inline;">
                       @csrf
