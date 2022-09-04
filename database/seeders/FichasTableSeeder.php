@@ -18,14 +18,21 @@ class FichasTableSeeder extends Seeder
         DB::table('fichas')->insert(
             [
                 [
-                    'competencia' => 'Competência 1',
-                    'codigo' => 'Código 1',
-                    'descricao' => 'Descricao 1'
+                    'campo' => 'campo 1',
+                    'faixas' => 'faixas 1',
+                    'codigo' => 'codigo 1',
+                    'objetivos' => 'objetivos 1',
+                    'abordagem' => 'abordagem 1',
+                    'sugestoes' => 'sugestões 1'
                 ],
                 [
-                    'competencia' => 'Competência 2',
-                    'codigo' => 'Código 2',
-                    'descricao' => 'Descricao 2'
+                    
+                    'campo' => 'campo 2',
+                    'faixas' => 'faixas 2',
+                    'codigo' => 'codigo 2',
+                    'objetivos' => 'objetivos 2',
+                    'abordagem' => 'abordagem 2',
+                    'sugestoes' => 'sugestões 2'
                 ]
             ]     
         );
