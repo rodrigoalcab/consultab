@@ -22,3 +22,6 @@ Route::resource('fichas', \App\Http\Controllers\FichaController::class)
 ->parameters([
     'fichas' => 'id'
 ]);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
