@@ -19,4 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-Route::resource('/fichas', \App\Http\Controllers\ApiFichaController::class);
+Route::post('/auth/login', [\App\Http\Controllers\AuthController::class, 'login']);
+
+Route::group(['middleware' => ['apiJWT']], function() {
+    Route::post('auth/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+    Route::resource('/fichas', \App\Http\Controllers\ApiFichaController::class);
+});
+
+
+
