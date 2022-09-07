@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+Route::get('/register', function () {
+    return view('/auth/login');
+});
+
 Route::resource('fichas', \App\Http\Controllers\FichaController::class)
 ->parameters([
     'fichas' => 'id'
