@@ -19,4 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-Route::middleware('auth:api')->Route::resource('/fichas', \App\Http\Controllers\ApiFichaController::class);
+Route::group(['middleware' => ['auth:api']], function() {
+    Route::resource('/fichas', \App\Http\Controllers\ApiFichaController::class);
+});
