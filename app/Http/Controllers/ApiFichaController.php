@@ -7,6 +7,7 @@ use App\Models\Ficha;
 
 class ApiFichaController extends Controller
 {
+  
     /**
      * Display a listing of the resource.
      *
