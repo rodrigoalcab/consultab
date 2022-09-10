@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('/auth/login');
-});
+}); */
 
-Route::resource('fichas', \App\Http\Controllers\FichaController::class)
+Route::resource('/fichas', \App\Http\Controllers\FichaController::class)
 ->parameters([
     'fichas' => 'id'
 ])->middleware('auth');
