@@ -40,9 +40,12 @@ class ApiFichaController extends Controller
     {
          // lógica para criar uma nova ficha
          $ficha = new Ficha;
-         $ficha->competencia = $request->competencia;
+         $ficha->campo = $request->campo;
+         $ficha->faixas = $request->faixas;
          $ficha->codigo = $request->codigo;
-         $ficha->descricao = $request->descricao;
+         $ficha->objetivos = $request->objetivos;
+         $ficha->abordagem = $request->abordagem;
+         $ficha->sugestoes = $request->sugestoes;
          $ficha->save();
  
          return response()->json([
