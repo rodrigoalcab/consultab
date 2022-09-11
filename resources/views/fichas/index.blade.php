@@ -2,7 +2,9 @@
 
 @section('content')
 
-<table class="table table-bordered">
+<div class="container">
+
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">Campo de Experiências</th>
@@ -26,22 +28,30 @@
                 <td>{{ $ficha->sugestoes }}</td>
                 <td>
 
-                  <form action="{{route('fichas.edit', [$ficha->id])}}" method="post" style="display: inline;">
-                    @csrf
-                    @method('GET')
-                    <button type="submit" class="btn btn-warning">Editar</button>              
-                  </form>            
-                  
-                    <form action="{{route('fichas.destroy', [$ficha->id])}}" method="post" style="display: inline;">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <form action="{{route('fichas.edit', [$ficha->id])}}" method="post" style="display: inline;">
                       @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Deseja remover a ficha?')">Remover</button>
-                    </form>
+                      @method('GET')
+                      <button type="submit" class="btn btn-warning">Editar</button>              
+                    </form>            
+                    
+                      <form action="{{route('fichas.destroy', [$ficha->id])}}" method="post" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" style="margin-left: 10px;" onclick="return confirm('Deseja remover a ficha?')">Remover</button>
+                      </form>
+                      
+                    </div>
               
                 </td>
             </tr>
         @endforeach
     </tbody>
   </table>
+
+</div>
+
+  
 
 @endsection
