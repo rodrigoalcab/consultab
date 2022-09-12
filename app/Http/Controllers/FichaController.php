@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\FichasRequest;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
 
@@ -35,7 +35,7 @@ class FichaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FichasRequest $request)
     {
         $dados = $request->all();
         $ficha = new Ficha();
@@ -84,7 +84,7 @@ class FichaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FichasRequest $request, $id)
     {
         $dados = $request->all();
         $ficha = Ficha::find($id);

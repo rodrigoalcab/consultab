@@ -27,6 +27,7 @@ Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
     ->only(['index', 'store', 'update', 'delete'])
     ->middleware('auth:sanctum');
 
+    
 
 Route::prefix('auth')->group(function() {
     Route::post('login', 
