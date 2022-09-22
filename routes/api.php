@@ -21,10 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 
 Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
-    ->only(['show']);
+    ->only(['show',]);
 
 Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
-    ->only(['index', 'store', 'update', 'delete'])
+    ->only(['index', 'store', 'update', 'destroy'])
     ->middleware('auth:sanctum');
 
     

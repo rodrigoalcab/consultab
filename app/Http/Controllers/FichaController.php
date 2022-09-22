@@ -37,8 +37,9 @@ class FichaController extends Controller
      */
     public function store(FichasRequest $request)
     {
-        $dados = $request->all();
+        $dados = $request->all(); //implementar validated
         $ficha = new Ficha();
+        //ficha::create($request->validated())
         $ficha->campo = $dados['campo'];
         $ficha->faixas = $dados['faixas'];
         $ficha->codigo = $dados['codigo'];
@@ -71,7 +72,7 @@ class FichaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //posso instanciar no lugar do $id, model bind
     {
         $ficha = Ficha::find($id);
         return view('fichas.edit', compact('ficha'));
