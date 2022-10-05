@@ -18,21 +18,16 @@ class FichasTableSeeder extends Seeder
         DB::table('fichas')->insert(
             [
                 [
-                    'campo' => 'campo 1',
-                    'faixas' => 'faixas 1',
-                    'codigo' => 'codigo 1',
-                    'objetivos' => 'objetivos 1',
-                    'abordagem' => 'abordagem 1',
-                    'sugestoes' => 'sugestões 1'
-                ],
-                [
-                    
-                    'campo' => 'campo 2',
-                    'faixas' => 'faixas 2',
-                    'codigo' => 'codigo 2',
-                    'objetivos' => 'objetivos 2',
-                    'abordagem' => 'abordagem 2',
-                    'sugestoes' => 'sugestões 2'
+                    'campo_id' => '1',
+                    'faixa_id' => '1',
+                    'codigo' => 'Código 1',
+                    'objetivos' => 'Objetivo 1',
+                    'abordagem' => 'Abordagem 1',
+                    'sugestoes' => 'Sugestões 1',
+                    'recurso' => 'Recurso 1',
+                    'link_recurso' => 'https://bolachapedagogica.com/luva-do-poema-sou-crianca-sou-assim',
+                    'propaganda' => 'Propaganda 1',                    
+                    'link_propaganda' => 'https://alfabetinho.com.br/conscienciafonologica?ref=N60731758R'
                 ]
             ]     
         );

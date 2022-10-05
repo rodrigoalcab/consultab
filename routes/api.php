@@ -20,11 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
-    ->only(['show',]);
+Route::get('fichas/search', [\App\Http\Controllers\ApiFichaController::class, 'search']);
 
-Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
-    ->only(['index', 'store', 'update', 'destroy'])
+Route::get('campos', [\App\Http\Controllers\ApiCampoController::class, 'index']);
+
+Route::get('faixas', [\App\Http\Controllers\ApiFaixaController::class, 'index']);
+
+// Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class);
+
+/* Route::resource('fichas', \App\Http\Controllers\ApiFichaController::class)
+    ->only(['show', 'store', 'update', 'destroy'])
     ->middleware('auth:sanctum');
 
     
@@ -40,5 +45,6 @@ Route::prefix('auth')->group(function() {
         Route::post('register', 
         [\App\Http\Controllers\Auth\Api\RegisterController::class, 'register']);
     
-});
+}); 
+*/
 

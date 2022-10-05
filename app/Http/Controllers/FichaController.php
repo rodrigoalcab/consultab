@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FichasRequest;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
+use App\Models\Campo;
+use App\Models\Faixa;
 
 class FichaController extends Controller
 {
@@ -26,7 +28,10 @@ class FichaController extends Controller
      */
     public function create()
     {
-        return view('fichas.create');
+        $campos = Campo::all();
+        $faixas = Faixa::all();
+
+        return view('fichas.create', compact('campos', 'faixas'));
     }
 
     /**
@@ -40,12 +45,16 @@ class FichaController extends Controller
         $dados = $request->all(); //implementar validated
         $ficha = new Ficha();
         //ficha::create($request->validated())
-        $ficha->campo = $dados['campo'];
-        $ficha->faixas = $dados['faixas'];
+        $ficha->campo_id = $dados['campo_id'];
+        $ficha->faixa_id = $dados['faixa_id'];
         $ficha->codigo = $dados['codigo'];
         $ficha->objetivos = $dados['objetivos'];
         $ficha->abordagem = $dados['abordagem'];
         $ficha->sugestoes = $dados['sugestoes'];
+        $ficha->recurso = $dados['recurso'];
+        $ficha->link_recurso = $dados['link_recurso'];
+        $ficha->propaganda = $dados['propaganda'];
+        $ficha->link_propaganda = $dados['link_propaganda'];
 
         $ficha->save();
 
@@ -74,8 +83,12 @@ class FichaController extends Controller
      */
     public function edit($id) //posso instanciar no lugar do $id, model bind
     {
-        $ficha = Ficha::find($id);
-        return view('fichas.edit', compact('ficha'));
+        $campos = Campo::all();
+        $faixas = Faixa::all();
+        $ficha = Ficha::find($id);      
+
+        return view('fichas.edit', compact('campos', 'faixas','ficha'));
+
     }
 
     /**
@@ -85,9 +98,10 @@ class FichaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FichasRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $dados = $request->all();
+        $dados = $request->all();       
+
         $ficha = Ficha::find($id);
 
         $ficha->update($dados);

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campo;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
+use Illuminate\Support\Facades\DB;
 
 class ApiFichaController extends Controller
 {
@@ -114,4 +116,43 @@ class ApiFichaController extends Controller
             ], 404);
           }
     }
-}
+
+    public function search(Request $request) {
+      
+      $campo_id = $request->campo_id;
+      $faixa_id = $request->faixa_id;
+      $codigo = $request->codigo;
+      $objetivos = $request->objetivos;
+
+      if($campo_id == "" and $faixa_id != "") {
+        $resultado = DB::table('fichas')
+                ->Where('faixa_id', '=', $faixa_id)
+                ->Where('codigo', 'LIKE', '%' . $codigo . '%')
+                ->Where('objetivos', 'LIKE', '%' . $objetivos . '%')
+                ->get();
+
+      }elseif($campo_id != "" and $faixa_id == "") {
+        $resultado = DB::table('fichas')
+                ->where('campo_id', '=', $campo_id)
+                ->Where('codigo', 'LIKE', '%' . $codigo . '%')
+                ->Where('objetivos', 'LIKE', '%' . $objetivos . '%')
+                ->get();
+
+      }elseif($campo_id == "" and $faixa_id == "") {
+        $resultado = DB::table('fichas')
+                ->Where('codigo', 'LIKE', '%' . $codigo . '%')
+                ->Where('objetivos', 'LIKE', '%' . $objetivos . '%')
+                ->get();   
+
+      }else{
+        $resultado = DB::table('fichas')
+                ->where('campo_id', '=', $campo_id)
+                ->Where('faixa_id', '=', $faixa_id)
+                ->Where('codigo', 'LIKE', '%' . $codigo . '%')
+                ->Where('objetivos', 'LIKE', '%' . $objetivos . '%')
+                ->get();
+      }        
+         return response()->json($resultado, 200);
+    }   
+
+  }

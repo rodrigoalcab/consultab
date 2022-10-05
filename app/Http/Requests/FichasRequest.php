@@ -24,8 +24,8 @@ class FichasRequest extends FormRequest
     public function rules()
     {
         return [
-            'campo' => 'required',
-            'faixas' => 'required',
+            //'campo_id' => 'required',
+            //'faixa_id' => 'required',
             'codigo' => 'required',
             'objetivos' => 'required',
             'abordagem' => 'required',

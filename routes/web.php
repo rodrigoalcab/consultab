@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 
-
-
-
-
-
 */
 
 Auth::routes();
@@ -24,6 +19,16 @@ Auth::routes();
 Route::get('/', function () {
     return view('/auth/login');
 });
+
+Route::resource('campos', \App\Http\Controllers\CampoController::class)
+->parameters([
+    'campos' => 'id'
+])->middleware('auth');
+
+Route::resource('faixas', \App\Http\Controllers\FaixaController::class)
+->parameters([
+    'faixas' => 'id'
+])->middleware('auth');
 
 Route::resource('fichas', \App\Http\Controllers\FichaController::class)
 ->parameters([
